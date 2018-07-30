@@ -124,9 +124,7 @@ export default class ExplorerComponent extends React.Component<IExplorerComponen
       if (config.max !== undefined && !validateMaxLength(String(value), config.max).valid) {
         return true;
       }
-    }
-    console.log('made it past loop');
-    
+    }    
     return false;
   }
 
