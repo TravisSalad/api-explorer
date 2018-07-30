@@ -1,0 +1,16 @@
+@import './Styles/Common.css';
+
+/* Components */
+@import './Styles/Button.css';
+@import './Styles/CodeViewer.css';
+@import './Styles/Input.css';
+@import './Styles/Spinner.css';
+@import './Styles/Typography.css';
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  line-height: 1.5;
+  color: #24292e;
+  background-color: #fff;
+  font-weight: 400;
+}

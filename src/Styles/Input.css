@@ -1,0 +1,19 @@
+.text-field {
+  padding: .5rem;
+  font-size: 12px;
+}
+
+.text-field__wrapper {
+  justify-content: flex-end;
+  display: flex;
+  flex-direction: column;
+}
+
+.text-field__label {
+  margin: .5rem 0;
+}
+
+.text-field__label.required::after {
+  content: '*';
+  color: red;
+}
