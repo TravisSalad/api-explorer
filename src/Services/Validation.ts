@@ -16,12 +16,13 @@ export function validateMaxLength(value: string, max: number, message?: string):
   }
 }
 
-export function validatePattern(value: string, pattern: string, message?: string): IValidationResponse {
+export function validatePattern(value: any, pattern: string, message?: string): IValidationResponse {
+  if (pattern && pattern.charAt(0) === '/' && pattern.charAt(pattern.length - 1) === '/') {
+    // remove beginning and end slash as regex prototype will add them by default thus altering the pattern
+    pattern = pattern.substring(1, pattern.length - 1);
+  }
   const regExp: RegExp = new RegExp(pattern);
-  return {
-    valid: !!regExp.test(value),
-    message
-  };
+  return {valid: regExp.test(value), message};
 }
 
 export default {

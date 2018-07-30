@@ -39,7 +39,7 @@ const mockApiList: IApiConfig[] = [
         type: 'text',
         required: true,
         min: 3,
-        max: 10
+        max: 10,
       },
       {
         name: 'body',
@@ -51,7 +51,6 @@ const mockApiList: IApiConfig[] = [
         name: 'userId',
         type: 'number',
         required: true,
-        pattern: '/\d\d\d-\d\d\d\d/',
       },
     ]
   },

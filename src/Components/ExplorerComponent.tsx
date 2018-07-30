@@ -112,18 +112,21 @@ export default class ExplorerComponent extends React.Component<IExplorerComponen
       const field: IBodyFieldState = this.state.bodyFields[i];
       const { config, value } = field;
       if (config.required && value !== 0 && !value) return true;
-      // test the validation pattern.. NOTE this doesn't currently work as expected as javascript automatically
-      // removes escapte characters.  Need to investigate this further.
-      if (config.pattern && !validatePattern(String(value), config.pattern).valid) return true;
+      // if we're provided a regex pattern, let's make sure it's a match
+      if (config.pattern && !validatePattern(String(value), config.pattern).valid) {
+        return true;
+      }
       // if we're provided a min, check if string is greater than min
-      if (config.min !== undefined && config.min >= 0) {
-        return !validateMinLength(String(value), config.min).valid;
+      if (config.min !== undefined && !validateMinLength(String(value), config.min).valid) {
+        return true;
       }
       // if we're provided a max, check if string is less than max
-      if (config.max !== undefined && config.max >= 0) {
-        return !validateMaxLength(String(value), config.max).valid;
+      if (config.max !== undefined && !validateMaxLength(String(value), config.max).valid) {
+        return true;
       }
     }
+    console.log('made it past loop');
+    
     return false;
   }
 
