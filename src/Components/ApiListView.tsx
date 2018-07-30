@@ -4,7 +4,7 @@ import Constants from '../Services/Constants';
 
 export default class ApiListView extends React.Component {
   public render(): React.ReactNode {
-    // TODO: fetch the list of api methods and render an explorer component for each in an accordion
+    // TODO: fetch an actual list of API's from a data source
     return Constants.mockApiList.map((apiConfig) => <ExplorerComponent apiConfig={apiConfig} />);
   }
 }
